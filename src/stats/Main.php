@@ -26,3 +26,12 @@ use pocketmine\level\particle\DustParticle;
 
 class Main extends PluginBase implements Listener
 {
+
+ public $players = array();
+public function onEnable() {
+		  @mkdir($this->getDataFolder());
+@mkdir($this->getDataFolder()."PlayerDatabase/");
+		$this->getServer()->getPluginManager()->registerEvents($this,$this);
+		$this->getServer()->getLogger()->info("ArchStats Registered!");
+		 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new CallbackTask([$this,"popup"]),15);
+		}
