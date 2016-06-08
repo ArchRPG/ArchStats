@@ -35,3 +35,19 @@ public function onEnable() {
 		$this->getServer()->getLogger()->info("ArchStats Registered!");
 		 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new CallbackTask([$this,"popup"]),15);
 		}
+
+		public function onJoin(PlayerJoinEvent $ev){
+		$ign=$ev->getPlayer()->getName();
+		$p=$ev->getPlayer();
+		$player=$p;
+		 $this->PlayerFile = new Config($this->getDataFolder()."PlayerDatabase/".$ign."Data.yml", Config::YAML);
+		 
+		 if($this->PlayerFile->get("Deaths") === 0 && $this->PlayerFile->get("Kills") === 0){
+         //nothin  
+         }else{
+                 if($p->getLevel()->getName() == "PvP"){
+
+		}
+		$this->addPlayer($p);
+		}
+  }
