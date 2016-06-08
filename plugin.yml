@@ -1,0 +1,14 @@
+name: Archstats
+main: stats\Main
+version: 1#Beta
+api: [2.0.0]
+
+commands:
+ stats:
+  permission: arch.stats
+  default: true
+  
+  permissions:
+      arch.stats:
+          default: true
+          description: "Shows stats"
