@@ -2,6 +2,7 @@ Public Plugin From My Private Server ArchRPG
 
 # TODO:
 * Fix Bugs.
+* Add Coins In Stats.(Economy's)
 
 ## Description:
 Simple Stats for player.
