@@ -43,11 +43,24 @@ public function onEnable() {
 		 $this->PlayerFile = new Config($this->getDataFolder()."PlayerDatabase/".$ign."Data.yml", Config::YAML);
 		 
 		 if($this->PlayerFile->get("Deaths") === 0 && $this->PlayerFile->get("Kills") === 0){
-         //nothin  
          }else{
-                 if($p->getLevel()->getName() == "PvP"){
 
-		}
 		$this->addPlayer($p);
 		}
   }
+
+public function onHit(EntityDamageEvent $ev){
+
+
+$p = $ev->getEntity();
+
+if($ev instanceof EntityDamageByEntityEvent){
+$damager = $ev->getDamager();
+if($damager instanceof Player){
+
+$this->DamagerFile = new Config($this->getDataFolder()."PlayerDatabase/".$damager->getName()."Data.yml", Config::YAML);
+
+$this->PlayerFile = new Config($this->getDataFolder()."PlayerDatabase/".$p->getName()."Data.yml", Config::YAML);
+}
+}
+}
